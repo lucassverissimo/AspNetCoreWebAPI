@@ -2,7 +2,7 @@
 {
     public class Aluno
     {
-        public Aluno(){ }
+        public Aluno() { }
         
         public Aluno(int id, string nome, string sobrenome, string telefone) 
         {
@@ -16,6 +16,6 @@
         public string Sobrenome { get; set; }
         public string Telefone { get; set; }
         
-        public IEnumerable<AlunoDisciplina> AlunosDisciplinas { get; set; }
+        public IEnumerable<AlunoDisciplina>? AlunosDisciplinas { get; set; }
     }
 }
