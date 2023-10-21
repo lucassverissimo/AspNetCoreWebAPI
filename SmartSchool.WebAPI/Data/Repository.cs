@@ -35,6 +35,20 @@ namespace SmartSchool.WebAPI.Data
             return (_context.SaveChanges() > 0);
         }
 
+        public async Task<Aluno[]> GetAllAlunosAsync(bool includeProfessor = false)
+        {
+            IQueryable<Aluno> query = _context.Alunos;
+
+            if (includeProfessor){
+                query = query.Include(a => a.AlunosDisciplinas)
+                    .ThenInclude(ad => ad.Disciplina)
+                    .ThenInclude(d => d.Professor);
+            }
+            
+            query = query.AsNoTracking().OrderBy(a => a.Id);
+            return await query.ToArrayAsync();
+        }
+
         public Aluno[] GetAllAlunos(bool includeProfessor = false)
         {
             IQueryable<Aluno> query = _context.Alunos;
@@ -145,6 +159,6 @@ namespace SmartSchool.WebAPI.Data
                          .Where(professor => professor.Id == professorId);
 
             return query.FirstOrDefault();
-        }
+        }        
     }
 }

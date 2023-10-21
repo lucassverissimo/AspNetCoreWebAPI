@@ -6,13 +6,13 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartSchool.WebAPI.Data;
-using SmartSchool.WebAPI.Dtos;
+using SmartSchool.WebAPI.V2.Dtos;
 using SmartSchool.WebAPI.Models;
 
-namespace SmartSchool.WebAPI.Controllers
+namespace SmartSchool.WebAPI.V2.Controllers
 {
     [ApiController]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class AlunoController : ControllerBase
     {        
@@ -29,16 +29,10 @@ namespace SmartSchool.WebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             var alunos = _repo.GetAllAlunos(true);
             return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));            
-        }
-
-        [HttpGet("GetRegister")]
-        public IActionResult GetRegister()
-        {            
-            return Ok(new AlunoRegistrarDto());
         }
 
         [HttpGet("{id}")]
@@ -74,22 +68,6 @@ namespace SmartSchool.WebAPI.Controllers
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, AlunoRegistrarDto model)
-        {
-            var aluno = _repo.GetAllAlunosByID(id);
-            if (aluno == null) return BadRequest("Aluno não encontrado");
-            
-            _mapper.Map(model, aluno);
-
-            _repo.Update(aluno);
-            if (_repo.SaveChanges()){
-                return Created($"/api/aluno/{model.Id}", _mapper.Map<AlunoDto>(aluno));
-            }
-
-            return BadRequest("Aluno não atualizado");
-        }
-
-        [HttpPatch("{id}")]
-        public IActionResult Patch(int id, AlunoRegistrarDto model)
         {
             var aluno = _repo.GetAllAlunosByID(id);
             if (aluno == null) return BadRequest("Aluno não encontrado");

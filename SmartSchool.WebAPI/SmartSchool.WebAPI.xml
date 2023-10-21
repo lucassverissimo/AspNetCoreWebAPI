@@ -4,12 +4,6 @@
         <name>SmartSchool.WebAPI</name>
     </assembly>
     <members>
-        <member name="M:SmartSchool.WebAPI.Controllers.AlunoController.Get">
-            <summary>
-            Método responsável pela obtenção dos alunos.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:SmartSchool.WebAPI.Migrations.Initial">
             <inheritdoc />
         </member>
@@ -33,6 +27,18 @@
         </member>
         <member name="M:SmartSchool.WebAPI.Migrations.Initial2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.Get">
+            <summary>
+            Método responsável pela obtenção dos alunos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchool.WebAPI.V2.Controllers.AlunoController.Get">
+            <summary>
+            Método responsável pela obtenção dos alunos.
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

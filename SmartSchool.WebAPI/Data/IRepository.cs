@@ -13,6 +13,7 @@ namespace SmartSchool.WebAPI.Data
         void Delete<T>(T entity) where T : class;
         bool SaveChanges();
 
+        Task<Aluno[]> GetAllAlunosAsync(bool includeProfessor = false);
         Aluno[] GetAllAlunos(bool includeProfessor = false);
         Aluno[] GetAllAlunosByDisciplinaId(int disciplinaId, bool includeProfessor = false);
         Aluno? GetAllAlunosByID(int alunoId, bool includeProfessor = false);
