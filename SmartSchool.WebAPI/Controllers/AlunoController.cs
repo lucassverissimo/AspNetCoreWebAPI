@@ -12,7 +12,8 @@ using SmartSchool.WebAPI.Models;
 namespace SmartSchool.WebAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class AlunoController : ControllerBase
     {        
         private readonly IRepository _repo;
@@ -23,7 +24,10 @@ namespace SmartSchool.WebAPI.Controllers
             this._repo = repo;
             this._mapper = mapper;
         }
-
+        /// <summary>
+        /// Método responsável pela obtenção dos alunos.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {

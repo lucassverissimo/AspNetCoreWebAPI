@@ -4,15 +4,13 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:36978",
-      "sslPort": 44341
+      "applicationUrl": "http://localhost:36978"
     }
   },
   "profiles": {
-    "http": {
+    "SmartSchoolApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
@@ -21,7 +19,6 @@
     },
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

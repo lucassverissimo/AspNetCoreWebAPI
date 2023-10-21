@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartSchool.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:SmartSchool.WebAPI.Controllers.AlunoController.Get">
+            <summary>
+            Método responsável pela obtenção dos alunos.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SmartSchool.WebAPI.Migrations.Initial">
+            <inheritdoc />
+        </member>
+        <member name="M:SmartSchool.WebAPI.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SmartSchool.WebAPI.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SmartSchool.WebAPI.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SmartSchool.WebAPI.Migrations.Initial2">
+            <inheritdoc />
+        </member>
+        <member name="M:SmartSchool.WebAPI.Migrations.Initial2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SmartSchool.WebAPI.Migrations.Initial2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SmartSchool.WebAPI.Migrations.Initial2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
