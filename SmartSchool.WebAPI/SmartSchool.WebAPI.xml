@@ -34,6 +34,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SmartSchool.WebAPI.V1.Controllers.AlunoController.GetAsync(SmartSchool.WebAPI.Helpers.PageParams)">
+            <summary>
+            Obtenção assíncrona de todos os alunos.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SmartSchool.WebAPI.V2.Controllers.AlunoController.Get">
             <summary>
             Método responsável pela obtenção dos alunos.

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SmartSchool.WebAPI.Data;
 using SmartSchool.WebAPI.V1.Dtos;
 using SmartSchool.WebAPI.Models;
+using SmartSchool.WebAPI.Helpers;
 
 namespace SmartSchool.WebAPI.V1.Controllers
 {
@@ -34,12 +35,17 @@ namespace SmartSchool.WebAPI.V1.Controllers
             var alunos = _repo.GetAllAlunos(true);
             return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));            
         }
-
+        /// <summary>
+        /// Obtenção assíncrona de todos os alunos.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Async")]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> GetAsync([FromQuery]PageParams pageParams)
         {
-            var alunos = await _repo.GetAllAlunosAsync(true);
-            return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));            
+            var alunos = await _repo.GetAllAlunosAsync(pageParams, true);
+            var result = _mapper.Map<IEnumerable<AlunoDto>>(alunos);
+            Response.AddPagination(alunos.CurrentPage, alunos.PageSize, alunos.TotalCount, alunos.TotalPages);
+            return Ok(result);            
         }
 
         [HttpGet("GetRegister")]
