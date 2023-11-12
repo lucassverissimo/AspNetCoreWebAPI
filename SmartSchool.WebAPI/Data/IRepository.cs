@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using SmartSchool.WebAPI.Helpers;
 using SmartSchool.WebAPI.Models;
@@ -14,15 +12,16 @@ namespace SmartSchool.WebAPI.Data
         void Delete<T>(T entity) where T : class;
         bool SaveChanges();
 
-        Task<PageList<Aluno>> GetAllAlunosAsync(PageParams pageParams, bool includeProfessor = false);
+        // Aluno
+        Task<PageList<Aluno>> GetAllAlunosAsync(PageParams pageParams, bool includeProfessor = false);        
         Aluno[] GetAllAlunos(bool includeProfessor = false);
-        Aluno[] GetAllAlunosByDisciplinaId(int disciplinaId, bool includeProfessor = false);
-        Aluno? GetAllAlunosByID(int alunoId, bool includeProfessor = false);
+        Task<Aluno[]> GetAllAlunosByDisciplinaIdAsync(int disciplinaId, bool includeProfessor = false);
+        Aluno GetAlunoById(int alunoId, bool includeProfessor = false);
 
-        Aluno[] GetAllAlunosByNomeSobrenome(string nome, string sobrenome, bool includeProfessor = false);
-
-        Professor[] GetAllProfessores(bool includeAluno = false);
-        Professor[] GetAllProfessoresByDisciplinaId(int disciplinaId, bool includeAluno = false);
-        Professor? GetAllProfessoresByID(int professorId, bool includeAluno = false);
+        // professor
+        Professor[] GetAllProfessores(bool includeAlunos = false);
+        Professor[] GetAllProfessoresByDisciplinaId(int disciplinaId, bool includeAlunos = false);
+        Professor GetAllProfessoresByID(int professorId, bool includeAlunos = false);
+        Professor[] GetProfessoresByAlunoId(int alunoId, bool includeAlunos = false);
     }
 }

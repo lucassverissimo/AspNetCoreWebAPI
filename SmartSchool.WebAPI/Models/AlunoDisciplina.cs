@@ -1,12 +1,14 @@
-﻿namespace SmartSchool.WebAPI.Models
+using System;
+
+namespace SmartSchool.WebAPI.Models
 {
     public class AlunoDisciplina
     {
         public AlunoDisciplina() { }
-        public AlunoDisciplina(int alunoId, int disciplinaId) 
+        public AlunoDisciplina(int alunoId, int disciplinaId)
         {
             this.AlunoId = alunoId;
-            this.DisciplinaId = disciplinaId;   
+            this.DisciplinaId = disciplinaId;
         }
         public DateTime DataIni { get; set; } = DateTime.Now;
         public DateTime? DataFim { get; set; }

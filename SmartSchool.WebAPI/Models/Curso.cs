@@ -1,17 +1,17 @@
-namespace SmartSchool.WebAPI.Models;
-public class Curso
+using System.Collections.Generic;
+
+namespace SmartSchool.WebAPI.Models
 {
-
-    public Curso() { }
-
-    public Curso(int id, string nome)
+    public class Curso
     {
-        this.Id = id;
-        this.Nome = nome;
+        public Curso() { }
+        public Curso(int id, string nome)
+        {
+            this.Id = id;
+            this.Nome = nome;
+        }
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public IEnumerable<Disciplina> Disciplinas { get; set; }
     }
-
-    public int Id { get; set; }
-    public string Nome { get; set; }
-    public IEnumerable<Disciplina> Disciplinas { get; set; }
-
 }
